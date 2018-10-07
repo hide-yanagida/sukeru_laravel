@@ -22,9 +22,9 @@
               <ul class="nav navbar-nav mr-auto">
               </ul>
               <ul class="nav navbar-nav">
-                <li><a href="request.html">
+                <li><a href="login/facebook">
                   <button class="btn btn-social-facebook">
-                    <span class="fui-facebook"></span> facebookで登録
+                    <span class="fui-facebook"></span> facebookでログイン
                   </button></a>
                 </li>
               </ul>
