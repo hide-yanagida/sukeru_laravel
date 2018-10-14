@@ -16,11 +16,21 @@
       <div class="row">
         <div class="col">
           <nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">
-            <a class="navbar-brand" href="index.html">SUKERU</a>
+            <a class="navbar-brand" href="/">SUKERU</a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
             <div class="collapse navbar-collapse" id="navbar-collapse-01">
+              @auth
               <ul class="nav navbar-nav mr-auto">
+                <li><a href="/mypage"><span class="fui-user"></span>MyPage</a></li>
               </ul>
+              <ul class="nav navbar-nav">
+                <li data-toggle="modal" data-target="#exampleModal"><a><span class="fui-new"></span>Post</a></li>
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+              @endauth
+
+              @guest
+              <ul class="nav navbar-nav mr-auto"></ul>
               <ul class="nav navbar-nav">
                 <li><a href="login/facebook">
                   <button class="btn btn-social-facebook">
@@ -28,6 +38,8 @@
                   </button></a>
                 </li>
               </ul>
+              @endguest
+
             </div><!-- /.navbar-collapse -->
           </nav><!-- /navbar -->
         </div>
@@ -42,6 +54,42 @@
         <p class="m-0 text-center">Copyright &copy; Hanamaki Hackathon 2018</p>
       </div>
     </footer>
+
+    <!-- モーダル(投稿フォーム) -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">リクエスト投稿</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-froup">
+                <label for="overview">作業概要</label>
+                <input type="text" placeholder="例) 人参の収穫作業" class="form-control" id="overview" />
+              </div>
+
+              <div class="form-froup">
+                <label for="place">作業場所</label>
+                <input type="text" placeholder="例) 岩手県盛岡市" class="form-control" id="place" />
+              </div>
+
+              <div class="form-froup">
+                <label for="day">作業日時</label>
+                <input type="text" placeholder="例) 9/25" class="form-control" id="day" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">投稿</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap 4 requires Popper.js -->
     <script src="js/app.js"></script>

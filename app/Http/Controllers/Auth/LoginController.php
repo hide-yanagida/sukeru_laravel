@@ -82,7 +82,14 @@ class LoginController extends Controller
         //facebookで認証を受けているので認証済ユーザとしての処理をする。
         $login_user = User::where('id', $user->id)->first();
         Auth::loginUsingId($login_user->id);
-        return redirect()->intended('/home');
+        //return redirect()->intended('/home');
+        return redirect('/home');
+    }
+
+    public function logout()
+    {
+      Auth::logout();
+      return redirect('/');
     }
 
 }
