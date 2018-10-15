@@ -65,31 +65,43 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-froup">
-                <label for="overview">作業概要</label>
-                <input type="text" placeholder="例) 人参の収穫作業" class="form-control" id="overview" />
-              </div>
 
-              <div class="form-froup">
-                <label for="place">作業場所</label>
-                <input type="text" placeholder="例) 岩手県盛岡市" class="form-control" id="place" />
-              </div>
+          <form action="{{ url('request/add')}}" method="POST"  class="form-horizontal">
+            {{ csrf_field() }}
+            <div class="modal-body">
+                <div class="form-froup">
+                  <label for="overview">作業概要</label>
+                  <input type="text" placeholder="例) 人参の収穫作業" class="form-control" id="overview" name="test" />
+                </div>
 
-              <div class="form-froup">
-                <label for="day">作業日時</label>
-                <input type="text" placeholder="例) 9/25" class="form-control" id="day" />
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">投稿</button>
-          </div>
+                <div class="form-froup">
+                  <label for="place">作業場所</label>
+                  <input type="text" placeholder="例) 岩手県盛岡市" class="form-control" id="place" />
+                </div>
+
+                <div class="form-froup">
+                  <label for="day">作業日時</label>
+                  <input type="text" placeholder="例) 9/25" class="form-control" id="day" />
+                </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">投稿</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+
+
+    <form action="{{ url('/message/add')}}" method="POST" class="form-horizontal">
+  {{ csrf_field() }}
+  <textarea rows="6" name="message"></textarea>
+  <button type="submit" name="add">
+   追加
+  </button>
+</form>
 
     <!-- Bootstrap 4 requires Popper.js -->
     <script src="js/app.js"></script>

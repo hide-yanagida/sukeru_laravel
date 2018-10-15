@@ -28,3 +28,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/mypage', 'HomeController@mypage');
+
+Route::post('/request/add', 'RequestController@create');
