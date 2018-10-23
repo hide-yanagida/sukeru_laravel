@@ -9,6 +9,8 @@
     <link href="css/app.css" rel="stylesheet">
     <link href="css/flat-ui.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
+    <link href="css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
+    bootstrap-datepicker3.standalone.min.css.map
   </head>
   <body>
 
@@ -81,7 +83,9 @@
 
                 <div class="form-froup">
                   <label for="day">作業日時</label>
-                  <input type="text" placeholder="例) 9/25" class="form-control" id="day" />
+                  <input type="text" class="form-control date-picker" id="date_from" readonly="readonly"/>
+                  <input type="text" class="form-control date-picker" id="date_to" readonly="readonly"/>
+
                 </div>
 
             </div>
@@ -94,19 +98,12 @@
       </div>
     </div>
 
-
-    <form action="{{ url('/message/add')}}" method="POST" class="form-horizontal">
-  {{ csrf_field() }}
-  <textarea rows="6" name="message"></textarea>
-  <button type="submit" name="add">
-   追加
-  </button>
-</form>
-
     <!-- Bootstrap 4 requires Popper.js -->
     <script src="js/app.js"></script>
     <script src="https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="js/flat-ui.js"></script>
     <script src="js/application.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/common.js"></script>
   </body>
 </html>
