@@ -29,4 +29,4 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/mypage', 'HomeController@mypage');
 
-Route::post('/request/add', 'RequestController@create');
+Route::post('/content/add', 'ContentsController@create');

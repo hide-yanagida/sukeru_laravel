@@ -10,7 +10,7 @@
     <link href="css/flat-ui.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
     <link href="css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
-    bootstrap-datepicker3.standalone.min.css.map
+
   </head>
   <body>
 
@@ -68,23 +68,23 @@
             </button>
           </div>
 
-          <form action="{{ url('request/add')}}" method="POST"  class="form-horizontal">
+          <form action="{{ url('content/add')}}" method="POST"  class="form-horizontal">
             {{ csrf_field() }}
             <div class="modal-body">
                 <div class="form-froup">
                   <label for="overview">作業概要</label>
-                  <input type="text" placeholder="例) 人参の収穫作業" class="form-control" id="overview" name="test" />
+                  <input type="text" placeholder="例) 人参の収穫作業" class="form-control" id="overview" name="overview" />
                 </div>
 
                 <div class="form-froup">
                   <label for="place">作業場所</label>
-                  <input type="text" placeholder="例) 岩手県盛岡市" class="form-control" id="place" />
+                  <input type="text" placeholder="例) 岩手県盛岡市" class="form-control" id="place" name="place" />
                 </div>
 
                 <div class="form-froup">
                   <label for="day">作業日時</label>
-                  <input type="text" class="form-control date-picker" id="date_from" readonly="readonly"/>
-                  <input type="text" class="form-control date-picker" id="date_to" readonly="readonly"/>
+                  <input type="text" class="form-control date-picker" id="date_from" readonly="readonly" name="date_from" />
+                  <input type="text" class="form-control date-picker" id="date_to" readonly="readonly" name="date_to"/>
 
                 </div>
 

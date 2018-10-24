@@ -1,9 +1,17 @@
 $(function(){
-    $('.date-picker').datepicker({
+    $('#date_from').datepicker({
         //オプション
         todayHighlight : false,
         autoclose : true,
-        keyboardNavigation : false
+        keyboardNavigation : false,
+        format: 'yyyy/mm/dd'
     });
-     //alert('test');
+
+    $('#date_to').datepicker({
+        //オプション
+        todayHighlight : false,
+        autoclose : true,
+        keyboardNavigation : false,
+        format: 'yyyy/mm/dd'
+    });
 });
