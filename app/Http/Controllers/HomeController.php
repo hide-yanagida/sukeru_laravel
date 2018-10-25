@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Content;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,8 @@ class HomeController extends Controller
 
         // $user = \Auth::user();
         // dd($user);
+        $contents = \App\Content::all();
+        //dd($contents);
         return view('home');
     }
 
