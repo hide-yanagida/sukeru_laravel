@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContentsController extends Controller
 {
@@ -29,6 +30,7 @@ class ContentsController extends Controller
       $content->place = $request->place;
       $content->date_from = strtotime($request->date_from);
       $content->date_to = strtotime($request->date_to);
+      $content->user_id = Auth::id();
 
       $content->save();
 
