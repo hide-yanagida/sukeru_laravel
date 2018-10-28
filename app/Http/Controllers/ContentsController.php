@@ -31,9 +31,13 @@ class ContentsController extends Controller
       $content->date_from = strtotime($request->date_from);
       $content->date_to = strtotime($request->date_to);
       $content->user_id = Auth::id();
-
       $content->save();
 
+      //fileをcontentのidにリネームして保存
+      $guessExtension = $request->file('image')->guessExtension();
+      $file = $request->file('image')
+                      ->storeAs('images', $content->id.'.'.$guessExtension);
+                      
       return redirect('/home');
   }
 

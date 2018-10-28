@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+<!--
 <div class="border m-3 p-3">
   <h3 class="demo-panel-title">絞り込み</h3>
   <div class="row">
@@ -12,84 +13,47 @@
         <option value="4">宮城県</option>
         <option value="5">福島県</option>
       </select>
-    </div> <!-- /.col -->
+    </div>
 
     <div class="col-md-4">
       <div class="form-group has-success">
         <input type="text" value="" placeholder="日にち" class="form-control" />
         <span class="input-icon fui-check-inverted"></span>
       </div>
-    </div> <!-- /.col -->
+    </div>
 
     <div class="col-md-2"></div>
 
     <div class="col-md-2">
       <a href="#fakelink" class="btn btn-primary"><span class="fui-search"></span>Search</a>
-    </div> <!-- /.col -->
+    </div>
   </div>
 </div>
+-->
 
 <div class="row m-3">
-  <div class="card-deck">
 
-    <div class="card border-success">
-      <figure class="figure p-1">
-        <img class="figure-img img-fluid" src="images/sukeru_top2.png">
-      </figure>
-      <hr>
-      <div class="card-body p-1">
-        <p class="card-text">イモ掘り</p>
-        <p class="card-text">岩手県盛岡市</p>
-        <p class="card-text">9/30〜11/30</p>
+    @foreach ($contents as $item)
+      <div class="card border-success col-md-4">
+        <figure class="figure p-1">
+          <img class="figure-img img-fluid" src="images/sukeru_top2.png">
+        </figure>
+        <hr>
+        <div class="card-body p-1">
+          <p class="card-text">{{$item['overview']}}</p>
+          <p class="card-text">{{$item['place']}}</p>
+          <p class="card-text">{{ date("Y/m/d", $item['date_from']) }} 〜 {{ date("Y/m/d", $item['date_to']) }}</p>
+        </div>
+
+        <div class="card-footer">
+          <button class="btn btn-primary">
+            SUKERU!!
+          </button>
+          <a data-toggle="modal" data-target="#exampleModalLong" href="">5</a>
+        </div>
       </div>
+    @endforeach
 
-      <div class="card-footer">
-        <button class="btn btn-primary">
-          SUKERU!!
-        </button>
-        <a data-toggle="modal" data-target="#exampleModalLong" href="">5</a>
-      </div>
-    </div>
-
-    <div class="card border-success">
-      <figure class="figure p-1">
-        <img class="figure-img img-fluid" src="images/sukeru_top2.png">
-      </figure>
-      <hr>
-      <div class="card-body p-1">
-        <p class="card-text">人参の収穫作業</p>
-        <p class="card-text">秋田県秋田市</p>
-        <p class="card-text">9/30〜11/30</p>
-      </div>
-
-      <div class="card-footer">
-        <button class="btn btn-primary">
-          SUKERU!!
-        </button>
-        <a data-toggle="modal" data-target="#exampleModalLong" href="">5</a>
-      </div>
-    </div>
-
-    <div class="card border-success">
-      <figure class="figure p-1">
-        <img class="figure-img img-fluid" src="images/sukeru_top2.png">
-      </figure>
-      <hr>
-      <div class="card-body p-1">
-        <p class="card-text">草取り</p>
-        <p class="card-text">青森県青森市</p>
-        <p class="card-text">9/30〜11/30</p>
-      </div>
-
-      <div class="card-footer">
-        <button class="btn btn-primary">
-          SUKERU!!
-        </button>
-        <a data-toggle="modal" data-target="#exampleModalLong" href="">5</a>
-      </div>
-    </div>
-
-  </div>
 </div>
 
 <!-- モーダル1(SUKERU!!した人のリスト) -->

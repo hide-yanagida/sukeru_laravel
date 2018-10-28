@@ -25,11 +25,9 @@ class HomeController extends Controller
     public function index()
     {
 
-        // $user = \Auth::user();
-        // dd($user);
         $contents = \App\Content::all();
         //dd($contents);
-        return view('home');
+        return view('home', compact('contents'));
     }
 
     public function mypage()

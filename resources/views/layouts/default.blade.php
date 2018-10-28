@@ -68,7 +68,7 @@
             </button>
           </div>
 
-          <form action="{{ url('content/add')}}" method="POST"  class="form-horizontal">
+          <form action="{{ url('content/add')}}" method="POST"  class="form-horizontal" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="modal-body">
                 <div class="form-froup">
@@ -88,6 +88,15 @@
 
                 </div>
 
+                <div class="form-group">
+                    <label class="form-group-btn">
+                        <span class="btn btn-primary">
+                            参考画像<input class="form-control" type="file" name="image" style="display:none">
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" readonly="">
+                </div>
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -105,5 +114,11 @@
     <script src="js/application.js"></script>
     <script src="js/bootstrap-datepicker.min.js"></script>
     <script src="js/common.js"></script>
+
+    <script type="text/javascript">
+      if (window.location.hash && window.location.hash == '#_=_') {
+          window.location.hash = '';
+      }
+    </script>
   </body>
 </html>
