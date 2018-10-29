@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\UploadedFile;
+use Validator;
 
 class ContentsController extends Controller
 {
@@ -25,6 +27,15 @@ class ContentsController extends Controller
    */
   public function create(Request $request)
   {
+      // バリデーションルール(jpeg, png, bmp, gif, or svg)
+      // $rules = [
+      //     'file' => 'image|max:5000'
+      // ];
+
+      //$validation = Validator::make($request, $rules);
+
+
+      //入力フォームの値をDBに保存
       $content = new Content;
       $content->overview = $request->overview;
       $content->place = $request->place;
@@ -33,11 +44,19 @@ class ContentsController extends Controller
       $content->user_id = Auth::id();
       $content->save();
 
-      //fileをcontentのidにリネームして保存
-      $guessExtension = $request->file('image')->guessExtension();
-      $file = $request->file('image')
-                      ->storeAs('images', $content->id.'.'.$guessExtension);
-                      
+      //fileの投稿がある時、file保存の処理をする。
+      $filename = '';
+      if ($request->file('image')->isValid()) {
+        //fileをcontentのidにリネームして保存
+        $guessExtension = $request->file('image')->guessExtension();
+        $filename = $content->id.'.'.$guessExtension;
+        $file = $request->file('image')
+                        ->storeAs('public', $filename);
+      }
+
+      $content->filename = $filename;
+      $content->save();
+
       return redirect('/home');
   }
 

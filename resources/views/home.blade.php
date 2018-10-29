@@ -34,9 +34,13 @@
 <div class="row m-3">
 
     @foreach ($contents as $item)
-      <div class="card border-success col-md-4">
+      <div class="card border-success col-md-4 mb-2">
         <figure class="figure p-1">
-          <img class="figure-img img-fluid" src="images/sukeru_top2.png">
+          @if ($item['filename'] == '')
+            <img class="figure-img img-fluid" src="{{ asset('storage/noimage.png') }}">
+          @else
+            <img class="figure-img img-fluid" src="{{ asset('storage/' . $item['filename']) }}">
+          @endif
         </figure>
         <hr>
         <div class="card-body p-1">
