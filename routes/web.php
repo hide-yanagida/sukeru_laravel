@@ -30,3 +30,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/mypage', 'HomeController@mypage');
 
 Route::post('/content/add', 'ContentsController@create');
+
+Route::post('/content/like', 'ContentsController@like');
+
+Route::post('/content/unlike', 'ContentsController@unlike');

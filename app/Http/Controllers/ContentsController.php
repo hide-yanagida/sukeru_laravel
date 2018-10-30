@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Content;
+use App\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\UploadedFile;
@@ -114,5 +115,30 @@ class ContentsController extends Controller
   public function destroy(Request $request)
   {
       //
+  }
+
+  public function like(Request $request)
+  {
+    $like = new Like;
+    $like->user_id =  Auth::id();
+    $like->content_id = $request->content_id;
+    $like->save();
+
+    return '';
+  }
+
+  public function unlike(Request $request)
+  {
+
+/*
+    DB::table('likes')
+    ->where('user_id', Auth::id())
+    ->where('content_id', $request->content_id)
+    ->delete();
+*/
+    $deleteRows = \App\Like::where('user_id', Auth::id())
+                            ->where('content_id', $request->content_id)
+                            ->delete();
+    return '';
   }
 }

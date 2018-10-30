@@ -50,10 +50,12 @@
         </div>
 
         <div class="card-footer">
-          <button class="btn btn-primary">
-            SUKERU!!
-          </button>
-          <a data-toggle="modal" data-target="#exampleModalLong" href="">5</a>
+            <!--<button class="btn btn-primary">-->
+            <button class="btn btn-default like_btn">
+              SUKERU!!
+            </button>
+            <input type="hidden" name="content_id" value="{{ $item['id'] }}">
+            <a data-toggle="modal" data-target="#exampleModalLong" href="">5</a>
         </div>
       </div>
     @endforeach
