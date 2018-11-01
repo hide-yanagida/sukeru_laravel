@@ -24,9 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        $contents = \App\Content::all();
-        //dd($contents);
+        $contents = \App\Content::get_contents_data();
         return view('home', compact('contents'));
     }
 

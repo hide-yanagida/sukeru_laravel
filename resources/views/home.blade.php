@@ -50,12 +50,14 @@
         </div>
 
         <div class="card-footer">
-            <!--<button class="btn btn-primary">-->
-            <button class="btn btn-default like_btn">
-              SUKERU!!
-            </button>
+            @if ($item['liked'] == 0)
+              <button class="btn btn-default like_btn">SUKERU!!</button>
+            @else
+              <button class="btn btn-primary unlike_btn">SUKERU!!</button>
+            @endif
+
             <input type="hidden" name="content_id" value="{{ $item['id'] }}">
-            <a data-toggle="modal" data-target="#exampleModalLong" href="">5</a>
+            <a class="like_count" data-toggle="modal" data-target="#exampleModalLong" href="">{{ $item['count'] }}</a>
         </div>
       </div>
     @endforeach

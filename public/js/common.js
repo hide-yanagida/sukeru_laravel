@@ -22,6 +22,9 @@ $(document).ready(function () {
         input.parent().parent().next(':text').val(label);
     });
 
+    //likeのカウント用変数
+    var like_count = 0;
+
     //sukeru!!(like)の処理
     //$('.like_btn').on('click', function(){
     $(document).on('click', '.like_btn', function(){
@@ -37,6 +40,10 @@ $(document).ready(function () {
         //ボタンの色を変更
         $(this).removeClass('btn-default like_btn');
         $(this).addClass('btn-primary unlike_btn');
+
+        //likeのカウントを増やす
+        like_count = parseInt($(this).nextAll('a').text());
+        $(this).nextAll('a').text(like_count + 1);
       })
       .fail( (data) => {
         console.log(data);
@@ -58,10 +65,18 @@ $(document).ready(function () {
         //ボタンの色を変更
         $(this).removeClass('btn-primary unlike_btn');
         $(this).addClass('btn-default like_btn');
+
+        //likeのカウントを減らす。
+        like_count = parseInt($(this).nextAll('a').text());
+        $(this).nextAll('a').text(like_count - 1);
       })
       .fail( (data) => {
         console.log(data);
       });
     });
 
+    //like数をクリックした時にモーダル内の記載を書き換える。
+    $(document).on('click', '.like_count', function(){
+       //alert('test');
+    });
 });

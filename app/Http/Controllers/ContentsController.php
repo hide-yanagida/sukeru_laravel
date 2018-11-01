@@ -35,7 +35,6 @@ class ContentsController extends Controller
 
       //$validation = Validator::make($request, $rules);
 
-
       //入力フォームの値をDBに保存
       $content = new Content;
       $content->overview = $request->overview;
