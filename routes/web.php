@@ -34,3 +34,5 @@ Route::post('/content/add', 'ContentsController@create');
 Route::post('/content/like', 'ContentsController@like');
 
 Route::post('/content/unlike', 'ContentsController@unlike');
+
+Route::post('/content/get_like_user', 'ContentsController@get_like_user');

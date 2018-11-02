@@ -65,7 +65,7 @@
 </div>
 
 <!-- モーダル1(SUKERU!!した人のリスト) -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade like_list_modal" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -75,55 +75,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-2">
-              <figure class="figure">
-                <img class="figure-img img-fluid" src="images/user-avatar-main-picture.png">
-              </figure>
-            </div>
-            <div class="col-md-5"><p>すける一郎</p></div>
-            <div class="col-md-2">
-              <a href="https://www.facebook.com/"><span class="fui-facebook col-xs-2"></span></a>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-2">
-              <figure class="figure">
-                <img class="figure-img img-fluid" src="images/user-avatar-main-picture.png">
-              </figure>
-            </div>
-            <div class="col-md-5"><p>すける二郎</p></div>
-            <div class="col-md-2">
-              <a href="https://www.facebook.com/"><span class="fui-facebook col-xs-2"></span></a>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-2">
-              <figure class="figure">
-                <img class="figure-img img-fluid" src="images/user-avatar-main-picture.png">
-              </figure>
-            </div>
-            <div class="col-md-5"><p>すける三郎</p></div>
-            <div class="col-md-2">
-              <a href="https://www.facebook.com/"><span class="fui-facebook col-xs-2"></span></a>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-2">
-              <figure class="figure">
-                <img class="figure-img img-fluid" src="images/user-avatar-main-picture.png">
-              </figure>
-            </div>
-            <div class="col-md-5"><p>すける四郎</p></div>
-            <div class="col-md-2">
-              <a href="https://www.facebook.com/"><span class="fui-facebook col-xs-2"></span></a>
-            </div>
-          </div>
-        </div>
+        <div class="container-fluid like_list"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

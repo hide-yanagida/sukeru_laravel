@@ -128,16 +128,15 @@ class ContentsController extends Controller
 
   public function unlike(Request $request)
   {
-
-/*
-    DB::table('likes')
-    ->where('user_id', Auth::id())
-    ->where('content_id', $request->content_id)
-    ->delete();
-*/
     $deleteRows = \App\Like::where('user_id', Auth::id())
                             ->where('content_id', $request->content_id)
                             ->delete();
     return '';
+  }
+
+  public function get_like_user(Request $request)
+  {
+    $data = \App\Content::get_like_user($request->content_id);
+    return $data;
   }
 }

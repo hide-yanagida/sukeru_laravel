@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 use App\Like;
+use App\User;
 
 class Content extends Model
 {
@@ -44,5 +45,27 @@ class Content extends Model
       }
 
       return $contents;
+    }
+
+    public static function get_like_user(string $content_id)
+    {
+      $users = \App\Like::where('content_id', $content_id)
+                          ->get();
+
+      //空処理
+      if(count($users) == 0)
+      {
+        return $users;
+      }
+
+      //user_idの配列を取得
+      $users_id = [];
+      foreach ($users as $key => $value) {
+        $user_id[] = $value->user_id;
+      }
+
+      $user_data = \App\User::whereIn('id', $user_id)
+                              ->get();
+      return $user_data;
     }
 }

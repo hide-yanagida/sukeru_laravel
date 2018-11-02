@@ -77,6 +77,46 @@ $(document).ready(function () {
 
     //like数をクリックした時にモーダル内の記載を書き換える。
     $(document).on('click', '.like_count', function(){
-       //alert('test');
+
+      //like_listを初期化。
+      $('.like_list').empty();
+
+      //空処理
+      if($(this).text() == 0)
+      {
+        $('.like_list_modal').modal('hide');
+        return;
+      }
+
+      $.ajax({
+        url: '/content/get_like_user',
+        type: 'post',
+        data: {
+          'content_id': $(this).prev().val(),
+          '_token' : $('input[name="_token"]').val()
+        }
+      })
+      .done( (data) => {
+        //DOM追加
+        $.each(data, function(index, value){
+          $('.like_list').append(
+            '<div class="row">'+
+              '<div class="col-md-2">'+
+                '<figure class="figure">'+
+                  '<img class="figure-img img-fluid" src="'+value['avatar']+'">'+
+                '</figure>'+
+              '</div>'+
+              '<div class="col-md-5"><p>'+value['name']+'</p></div>'+
+              '<div class="col-md-2">'+
+                '<a href="'+value['link']+'"><span class="fui-facebook col-xs-2" target="_blank"></span></a>'+
+              '</div>'+
+            '</div>'
+          );
+        });
+
+      })
+      .fail( (data) => {
+        console.log(data);
+      });
     });
 });
