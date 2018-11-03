@@ -30,6 +30,9 @@ class HomeController extends Controller
 
     public function mypage()
     {
-      return view('mypage');
+      $contents = \App\Content::get_contents_mydata();
+      $sukeru = $contents['sukeru'];
+      $my_contents = $contents['my_contents'];
+      return view('mypage', compact('sukeru', 'my_contents'));
     }
 }

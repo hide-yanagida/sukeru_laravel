@@ -59,6 +59,7 @@ class Content extends Model
       return $contents;
     }
 
+    //likeした人一覧
     public static function get_like_user(string $content_id)
     {
       $users = \App\Like::where('content_id', $content_id)
@@ -79,5 +80,40 @@ class Content extends Model
       $user_data = \App\User::whereIn('id', $user_id)
                               ->get();
       return $user_data;
+    }
+
+    //mypageの情報を取得
+    public static function get_contents_mydata()
+    {
+      $contents = \App\Content::get_contents_data();
+
+      $users = \App\Like::where('user_id', Auth::id())
+                          ->get(['content_id']);
+
+      //content_idだけの配列を作る
+      $like_list=[];
+      foreach ($users as $key => $value)
+      {
+        $like_list[] = $value->content_id;
+      }
+      //$like_list = array_column($users, 'content_id');
+
+      $sukeru = [];
+      $my_contents = [];
+
+      foreach ($contents as $key => $value)
+      {
+        if($value->user_id == Auth::id())
+        {
+          $my_contents[] = $value;
+        }
+
+        if(!(array_search($value->id, $like_list) === FALSE))
+        {
+            $sukeru[] = $value;
+        }
+      }
+
+      return ['sukeru' => $sukeru, 'my_contents' => $my_contents];
     }
 }
