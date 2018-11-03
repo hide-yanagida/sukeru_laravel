@@ -15,12 +15,20 @@ class Content extends Model
     {
       $contents_data = \App\Content::all();
       $likes_data = \App\Like::all();
+      $user_data = \App\User::all();
 
       //コンテンツごとのlike数がわかるようにcontent_idをキーにまとめておく
       $likes = [];
       foreach ($likes_data as $key => $value)
       {
         $likes[$value->content_id][] = $value;
+      }
+
+      //user情報を取り出しやすいように整形
+      $users = [];
+      foreach ($user_data as $key => $value)
+      {
+        $users[$value->id] = $value;
       }
 
       //contentのデータにlikeのカウントと、自分がlikeしてるかの判定を追加する
@@ -35,12 +43,16 @@ class Content extends Model
         {
           $value['count'] = count($likes[$value->id]);
 
-          //このcontentに自分がlikeしているかどうか 0=>no_like, 1=like
+          //このcontentに自分がlikeしているかどうか 0=>no_like, 1=>like
           if(array_search(Auth::id(), array_column($likes[$value->id], 'user_id')) !== false)
           {
               $value['liked'] = 1;
           }
         }
+
+        //オーナー情報を追加
+        $value['owner'] = $users[$value->user_id];
+
         $contents[] = $value;
       }
 

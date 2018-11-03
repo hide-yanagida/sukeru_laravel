@@ -108,7 +108,7 @@ $(document).ready(function () {
               '</div>'+
               '<div class="col-md-5"><p>'+value['name']+'</p></div>'+
               '<div class="col-md-2">'+
-                '<a href="'+value['link']+'"><span class="fui-facebook col-xs-2" target="_blank"></span></a>'+
+                '<a href="'+value['link']+'" target="_blank"><span class="fui-facebook col-xs-2"></span></a>'+
               '</div>'+
             '</div>'
           );

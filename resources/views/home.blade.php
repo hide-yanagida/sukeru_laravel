@@ -44,6 +44,22 @@
         </figure>
         <hr>
         <div class="card-body p-1">
+          <!--<p class="card-text">{{$item['owner']['name']}}</p>-->
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-2">
+                <figure class="figure">
+                  <img class="figure-img img-fluid" src="{{$item['owner']['avatar']}}">
+                </figure>
+              </div>
+              <div class="col-md-5"><p>{{$item['owner']['name']}}</p></div>
+              <div class="col-md-2">
+                <a href="{{$item['owner']['link']}}" target="_blank"><span class="fui-facebook col-xs-2"></span></a>
+              </div>
+            </div>
+          </div>
+
           <p class="card-text">{{$item['overview']}}</p>
           <p class="card-text">{{$item['place']}}</p>
           <p class="card-text">{{ date("Y/m/d", $item['date_from']) }} 〜 {{ date("Y/m/d", $item['date_to']) }}</p>
