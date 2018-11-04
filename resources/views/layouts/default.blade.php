@@ -44,11 +44,18 @@
               @guest
               <ul class="nav navbar-nav mr-auto"></ul>
               <ul class="nav navbar-nav">
+                <!--
                 <li><a href="login/facebook">
                   <button class="btn btn-social-facebook">
                     <span class="fui-facebook"></span> facebookでログイン
                   </button></a>
                 </li>
+              -->
+              <li><a href="">
+                <button class="btn btn-social-facebook" onclick="alert('現在facebook認証機能の承認待ち中です。数日お待ちください。すみません。。。')">
+                  <span class="fui-facebook"></span> facebookでログイン
+                </button></a>
+              </li>
               </ul>
               @endguest
 
