@@ -55,7 +55,8 @@ class LoginController extends Controller
 
         //scopesで取得したい情報を指定できる。物によっては審査が必要
         return Socialite::driver('facebook')
-        ->scopes(['user_link'])
+        //facebook承認待ち
+        //->scopes(['user_link'])
         ->redirect();
     }
 
@@ -74,8 +75,8 @@ class LoginController extends Controller
             ['id' => $user->id,
              'name' => $user->name,
              'email' => $user->email,
-             'link' => $user->profileUrl,
-             //'link' => 'https://www.facebook.com/',
+             //'link' => $user->profileUrl,
+             'link' => 'https://www.facebook.com/',
              'avatar' => $user->avatar]
         );
         //dd($user->token);
