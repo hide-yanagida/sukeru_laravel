@@ -62,10 +62,10 @@
     </div>
     <footer class="py-5">
       <div class="container">
-        <div class="row">
+        <div class="row mb-2">
           <a href="https://twitter.com/share?url=https://sukeru.help&via=shiwataro1&related=shiwataro1&hashtags=sukeru&text=SUKERU〜お手伝いをなめらかに〜" rel="nofollow" target="_blank" class="btn btn-info mb-sm-5" onclick="window.open(this.href, 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;"><span class="fui-twitter col-xs-2"></span> SUKERUをシェア</a>
         </div>
-        <div class="row">
+        <div class="row mb-2">
           <a href="https://twitter.com/shiwataro1" target="_blank" class="btn btn-info mb-sm-5"><span class="fui-twitter col-xs-2"></span> 開発者にフィードバック</a>
         </div>
         <p class="m-0 text-center">Copyright &copy; Hanamaki Hackathon 2018</p>
