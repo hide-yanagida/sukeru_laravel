@@ -28,12 +28,16 @@ class ContentsController extends Controller
    */
   public function create(Request $request)
   {
-      // バリデーションルール(jpeg, png, bmp, gif, or svg)
-      // $rules = [
-      //     'file' => 'image|max:5000'
-      // ];
+      //バリデーションルール(jpeg, png, bmp, gif, or svg)
+      $rules = [
+          'file' => 'image|max:5000'
+      ];
 
-      //$validation = Validator::make($request, $rules);
+      $validation = Validator::make(['file' => $request->file('image')], $rules);
+      if ($validation->fails())
+      {
+            return redirect('/');
+      }
 
       //入力フォームの値をDBに保存
       $content = new Content;
