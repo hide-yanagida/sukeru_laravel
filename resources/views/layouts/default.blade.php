@@ -10,6 +10,7 @@
     <link href="/css/flat-ui.css" rel="stylesheet">
     <link href="/css/common.css" rel="stylesheet">
     <link href="/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.ico">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125823782-2"></script>
     <script>
