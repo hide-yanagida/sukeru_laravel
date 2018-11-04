@@ -74,7 +74,8 @@ class LoginController extends Controller
             ['id' => $user->id,
              'name' => $user->name,
              'email' => $user->email,
-             'link' => $user->profileUrl,
+             //'link' => $user->profileUrl,
+             'link' => 'https://www.facebook.com/',
              'avatar' => $user->avatar]
         );
         //dd($user->token);
