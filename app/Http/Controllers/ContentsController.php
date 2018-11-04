@@ -30,7 +30,7 @@ class ContentsController extends Controller
   {
       //バリデーションルール(jpeg, png, bmp, gif, or svg)
       $rules = [
-          'file' => 'image|max:5000'
+          'file' => 'image'
       ];
 
       $validation = Validator::make(['file' => $request->file('image')], $rules);
