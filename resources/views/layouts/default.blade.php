@@ -68,6 +68,12 @@
         <div class="row mb-2">
           <a href="https://twitter.com/shiwataro1" target="_blank" class="btn btn-info mb-sm-5"><span class="fui-twitter col-xs-2"></span> 開発者にフィードバック</a>
         </div>
+        <div class="row">
+          <a href="/term">利用規約</a>
+        </div>
+        <div class="row mb-2">
+          <a href="/policy">プライバシーポリシー</a>
+        </div>
         <p class="m-0 text-center">Copyright &copy; Hanamaki Hackathon 2018</p>
       </div>
     </footer>

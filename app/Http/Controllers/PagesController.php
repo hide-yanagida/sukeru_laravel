@@ -20,4 +20,12 @@ class PagesController extends Controller
     public function top() {
       return view('pages.top');
     }
+
+    public function term() {
+      return view('pages.term');
+    }
+
+    public function policy() {
+      return view('pages.policy');
+    }
 }

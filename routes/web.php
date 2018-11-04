@@ -19,6 +19,11 @@ Route::get('/', function () {
 
 Route::get('/', 'PagesController@top')->name('top');
 
+Route::get('/term', 'PagesController@term');
+
+Route::get('/policy', 'PagesController@policy');
+
+
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 //Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('register/callback', 'Auth\LoginController@handleProviderCallback');
