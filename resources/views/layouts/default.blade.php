@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Loading Flat UI Pro -->
-    <link href="css/app.css" rel="stylesheet">
-    <link href="css/flat-ui.css" rel="stylesheet">
-    <link href="css/common.css" rel="stylesheet">
-    <link href="css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/flat-ui.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
 
   </head>
   <body>
@@ -68,7 +68,7 @@
             </button>
           </div>
 
-          <form action="{{ url('content/add')}}" method="POST"  class="form-horizontal" enctype="multipart/form-data">
+          <form action="{{ url('/content/add')}}" method="POST"  class="form-horizontal" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="modal-body">
                 <div class="form-froup">
@@ -128,12 +128,12 @@
     </div>
 
     <!-- Bootstrap 4 requires Popper.js -->
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
     <script src="https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script src="js/flat-ui.js"></script>
-    <script src="js/application.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    <script src="js/common.js"></script>
+    <script src="/js/flat-ui.js"></script>
+    <script src="/js/application.js"></script>
+    <script src="/js/bootstrap-datepicker.min.js"></script>
+    <script src="/js/common.js"></script>
 
     <script type="text/javascript">
       if (window.location.hash && window.location.hash == '#_=_') {

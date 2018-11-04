@@ -42,8 +42,8 @@ $(document).ready(function () {
         $(this).addClass('btn-primary unlike_btn');
 
         //likeのカウントを増やす
-        like_count = parseInt($(this).nextAll('a').text());
-        $(this).nextAll('a').text(like_count + 1);
+        like_count = parseInt($(this).nextAll('.like_count').text());
+        $(this).nextAll('.like_count').text(like_count + 1);
       })
       .fail( (data) => {
         console.log(data);
@@ -67,8 +67,8 @@ $(document).ready(function () {
         $(this).addClass('btn-default like_btn');
 
         //likeのカウントを減らす。
-        like_count = parseInt($(this).nextAll('a').text());
-        $(this).nextAll('a').text(like_count - 1);
+        like_count = parseInt($(this).nextAll('.like_count').text());
+        $(this).nextAll('.like_count').text(like_count - 1);
       })
       .fail( (data) => {
         console.log(data);

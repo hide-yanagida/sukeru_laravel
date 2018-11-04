@@ -37,9 +37,9 @@
       <div class="card border-success col-md-4 mb-2">
         <figure class="figure p-1">
           @if ($item['filename'] == '')
-            <img class="figure-img img-fluid" src="{{ asset('storage/noimage.png') }}">
+            <img class="figure-img img-fluid" src="{{ asset('/storage/noimage.png') }}">
           @else
-            <img class="figure-img img-fluid" src="{{ asset('storage/' . $item['filename']) }}">
+            <img class="figure-img img-fluid" src="{{ asset('/storage/' . $item['filename']) }}">
           @endif
         </figure>
         <hr>

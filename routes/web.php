@@ -37,4 +37,6 @@ Route::post('/content/unlike', 'ContentsController@unlike');
 
 Route::post('/content/get_like_user', 'ContentsController@get_like_user');
 
-Route::get('/comment/{content_id}', 'CommentController@index'); 
+Route::get('/comment/{content_id}', 'CommentController@index');
+
+Route::post('/comment/add', 'CommentController@create');
