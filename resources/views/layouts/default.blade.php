@@ -62,6 +62,7 @@
     </div>
     <footer class="py-5">
       <div class="container">
+
         <a href="https://twitter.com/shiwataro1?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @shiwataro1</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <p class="m-0 text-center">Copyright &copy; Hanamaki Hackathon 2018</p>
       </div>
