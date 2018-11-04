@@ -12,7 +12,7 @@
 
 <div class="row">
   <div class="d-flex justify-content-center sub-description col">
-    <h2>こんな人たちに使ってほしい</h2>
+    <h3>こんな人たちに使ってほしい</h3>
   </div>
 </div>
 <div class="row m-3">
