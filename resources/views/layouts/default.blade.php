@@ -36,7 +36,7 @@
                 <li><a href="/mypage"><span class="fui-user"></span>MyPage</a></li>
               </ul>
               <ul class="nav navbar-nav">
-                <li data-toggle="modal" data-target="#exampleModal"><a><span class="fui-new"></span>Post</a></li>
+                <li><a data-toggle="modal" data-target="#exampleModal" href=""><span class="fui-new"></span>Post</a></li>
                 <li><a href="/logout">Logout</a></li>
               </ul>
               @endauth
