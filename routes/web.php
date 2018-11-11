@@ -45,3 +45,9 @@ Route::post('/content/get_like_user', 'ContentsController@get_like_user');
 Route::get('/comment/{content_id}', 'CommentController@index');
 
 Route::post('/comment/add', 'CommentController@create');
+
+Route::post('/content/delete', 'ContentsController@destroy');
+
+Route::post('/content/edit', 'ContentsController@update');
+
+Route::post('/comment/delete', 'CommentController@destroy');

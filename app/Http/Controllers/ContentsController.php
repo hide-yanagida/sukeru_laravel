@@ -33,12 +33,17 @@ class ContentsController extends Controller
           'file' => 'image'
       ];
 
-      $validation = Validator::make(['file' => $request->file('image')], $rules);
-      if ($validation->fails())
+      $is_valid = false;
+      if($request->file('image'))
       {
-            return redirect('/');
-      }
+            $validation = Validator::make(['file' => $request->file('image')], $rules);
+            if ($validation->fails())
+            {
+                  return redirect('/');
+            }
+            $is_valid = $request->file('image')->isValid();
 
+      }
       //入力フォームの値をDBに保存
       $content = new Content;
       $content->overview = $request->overview;
@@ -50,7 +55,8 @@ class ContentsController extends Controller
 
       //fileの投稿がある時、file保存の処理をする。
       $filename = '';
-      if ($request->file('image')->isValid()) {
+      //if ($request->file('image')->isValid()) {
+      if ($is_valid) {
         //fileをcontentのidにリネームして保存
         $guessExtension = $request->file('image')->guessExtension();
         $filename = $content->id.'.'.$guessExtension;
@@ -106,7 +112,44 @@ class ContentsController extends Controller
    */
   public function update(Request $request)
   {
-      //
+      //バリデーションルール(jpeg, png, bmp, gif, or svg)
+      $rules = [
+          'file' => 'image'
+      ];
+
+      $is_valid = false;
+      if($request->file('image'))
+      {
+        $validation = Validator::make(['file' => $request->file('image')], $rules);
+        if ($validation->fails())
+        {
+              return redirect('/');
+        }
+        $is_vaild = $request->file('image')->isValid();
+      }
+
+      $content = \App\Content::find($request->content_id);
+
+      $content->overview = $request->overview;
+      $content->place = $request->place;
+      $content->date_from = strtotime($request->date_from);
+      $content->date_to = strtotime($request->date_to);
+
+      //fileの投稿がある時、file保存の処理をする。
+      if ($is_valid) {
+        $filename = '';
+        //fileをcontentのidにリネームして保存
+        $guessExtension = $request->file('image')->guessExtension();
+        $filename = $content->id.'.'.$guessExtension;
+        $file = $request->file('image')
+                        ->storeAs('public', $filename);
+
+        $content->filename = $filename;
+      }
+
+      $content->save();
+
+      return redirect('/comment/'.$request->content_id);
   }
 
   /**
@@ -117,7 +160,9 @@ class ContentsController extends Controller
    */
   public function destroy(Request $request)
   {
-      //
+    $data = \App\Content::destroy($request->content_id);
+
+    return redirect('/home');
   }
 
   public function like(Request $request)
@@ -136,11 +181,5 @@ class ContentsController extends Controller
                             ->where('content_id', $request->content_id)
                             ->delete();
     return '';
-  }
-
-  public function get_like_user(Request $request)
-  {
-    $data = \App\Content::get_like_user($request->content_id);
-    return $data;
   }
 }

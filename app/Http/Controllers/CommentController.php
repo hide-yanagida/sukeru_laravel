@@ -44,4 +44,18 @@ class CommentController extends Controller
 
     return redirect('/comment/'.$request->content_id);
   }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  \App\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy(Request $request)
+  {
+    $data = \App\Comment::destroy($request->comment_id);
+
+    return back()->withInput();
+    //return redirect('/home');
+  }
 }

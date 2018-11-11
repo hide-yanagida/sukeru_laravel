@@ -30,7 +30,7 @@
     <div class="media">
       <div class="media-body">
         <h5 class="text-capitalize">新しいレジャーを求める人</h5>
-        <p>田舎での農作業体験。これはまさしく新しいレジャーなのです。旅行前にSUKERUをチェックだ！！</p>
+        <p>田舎での農作業体験。これはまさしく新しいレジャーなのです。旅行前にSUKERUをチェック！！</p>
       </div>
       <img class="mr-3" src="/images/travel_happy_men.png">
     </div>

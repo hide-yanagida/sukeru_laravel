@@ -59,4 +59,14 @@ class Comment extends Model
 
       return ['comments' => $comments, 'content' => $content];
     }
+
+    //コンテンツの削除
+    public static function destroy($comment_id)
+    {
+
+      $content = \App\Comment::where('id',  $comment_id)
+                          ->delete();
+
+      return '';
+    }
 }

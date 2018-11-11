@@ -116,4 +116,21 @@ class Content extends Model
 
       return ['sukeru' => $sukeru, 'my_contents' => $my_contents];
     }
+
+    //コンテンツの削除
+    public static function destroy($content_id)
+    {
+
+      $content = \App\Content::where('id',  $content_id)
+                          ->delete();
+
+      $content = \App\Like::where('content_id',  $content_id)
+                          ->delete();
+
+      $content = \App\Comment::where('content_id',  $content_id)
+                          ->delete();
+
+      return '';
+    }
+
 }

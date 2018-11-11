@@ -31,6 +31,19 @@
         <p class="card-text">{{$content['overview']}}</p>
         <p class="card-text">{{$content['place']}}</p>
         <p class="card-text">{{ date("Y/m/d", $content['date_from']) }} 〜 {{ date("Y/m/d", $content['date_to']) }}</p>
+
+        @if($content->user_id == Auth::id())
+        <div class="float-right btn-toolbar">
+          <div class="btn-group">
+            <button id="edit_btn" class="btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal">編集</button>
+            <form action="{{ url('/content/delete')}}" method="POST"  class="">
+              {{ csrf_field() }}
+              <input type="hidden" name="content_id" value="{{$content['id']}}">
+              <button id="delete_btn" class="btn btn-danger">削除</button>
+            </form>
+          </div>
+        </div>
+        @endif
       </div>
 
       <div class="card-footer">
@@ -46,6 +59,12 @@
       </div>
     </div>
   </div>
+
+  <!-- データ差し込み用 -->
+  <input type="hidden" id="p_overview" value="{{$content['overview']}}">
+  <input type="hidden" id="p_place" value="{{$content['place']}}">
+  <input type="hidden" id="p_date_from" value="{{ date("Y/m/d", $content['date_from']) }}">
+  <input type="hidden" id="p_date_to" value="{{ date("Y/m/d", $content['date_to']) }}">
 
   <div class="row mb-2">
     <div class="col-md-3"></div>
@@ -79,6 +98,15 @@
             <div class="col-md-5"><p>{{$comment['user']['name']}}</p></div>
             <div class="col-md-2">
               <a href="{{$comment['user']['link']}}" target="_blank"><span class="fui-facebook col-xs-2"></span></a>
+            </div>
+            <div>
+              @if($comment->user_id == Auth::id())
+              <form action="{{ url('/comment/delete')}}" method="POST"  class="">
+                {{ csrf_field() }}
+                <input type="hidden" name="comment_id" value="{{$comment['id']}}">
+                <button id="comment_delete_btn" class="btn btn-danger">削除</button>
+              </form>
+              @endif
             </div>
           </div>
         </div>

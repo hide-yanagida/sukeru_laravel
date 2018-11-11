@@ -36,7 +36,7 @@
                 <li><a href="/mypage"><span class="fui-user"></span>MyPage</a></li>
               </ul>
               <ul class="nav navbar-nav">
-                <li><a data-toggle="modal" data-target="#exampleModal" href=""><span class="fui-new"></span>Post</a></li>
+                <li><a data-toggle="modal" data-target="#exampleModal" href="" id="#post_btn"><span class="fui-new"></span>Post</a></li>
                 <li><a href="/logout">Logout</a></li>
               </ul>
               @endauth
@@ -44,7 +44,7 @@
               @guest
               <ul class="nav navbar-nav mr-auto"></ul>
               <ul class="nav navbar-nav">
-                
+
                 <li><a href="login/facebook">
                   <button class="btn btn-social-facebook">
                     <span class="fui-facebook"></span> facebookでログイン
@@ -91,8 +91,11 @@
             </button>
           </div>
 
-          <form action="{{ url('/content/add')}}" method="POST"  class="form-horizontal" enctype="multipart/form-data">
+          <form action="{{ url('/content/add')}}" method="POST"  class="form-horizontal" enctype="multipart/form-data" id="post_form">
             {{ csrf_field() }}
+            @isset($content['id'])
+              <input type="hidden" name="content_id" value="{{$content['id']}}">
+            @endisset
             <div class="modal-body">
                 <div class="form-froup">
                   <label for="overview">作業概要</label>
@@ -111,7 +114,7 @@
 
                 </div>
 
-                <div class="form-group">
+                <div class="form-group m-2">
                     <label class="form-group-btn">
                         <span class="btn btn-primary">
                             参考画像<input class="form-control" type="file" name="image" style="display:none">

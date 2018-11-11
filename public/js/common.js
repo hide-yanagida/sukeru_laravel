@@ -119,4 +119,37 @@ $(document).ready(function () {
         console.log(data);
       });
     });
+
+    //content削除の事前確認
+    $(document).on('click', '#delete_btn', function(){
+        if(confirm('本当に削除しますか？')){
+          $(this).submit();
+        }else{
+          return false;
+        }
+    });
+
+    //コメント削除の事前確認
+    $(document).on('click', '#comment_delete_btn', function(){
+        if(confirm('本当に削除しますか？')){
+          $(this).submit();
+        }else{
+          return false;
+        }
+    });
+
+    //編集ボタンの制御
+    $(document).on('click', '#edit_btn', function(){
+      $('#post_form').attr('action', '/content/edit');
+      $('#overview').val($('#p_overview').val());
+      $('#place').val($('#p_place').val());
+      $('#date_from').val($('#p_date_from').val());
+      $('#date_to').val($('#p_date_to').val());
+    });
+
+    //投稿ボタンの制御
+    $(document).on('click', '#post_btn', function(){
+      $('#post_form').attr('action', '/content/add');
+    });
+
 });
