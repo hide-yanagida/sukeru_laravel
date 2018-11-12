@@ -52,7 +52,7 @@ class ContentsController extends Controller
           'date_from' => 'required',
           'date_to' => 'required',
       ]);
-      
+
       //入力フォームの値をDBに保存
       $content = new Content;
       $content->overview = $request->overview;
@@ -198,5 +198,11 @@ class ContentsController extends Controller
                             ->where('content_id', $request->content_id)
                             ->delete();
     return '';
+  }
+
+  public function get_like_user(Request $request)
+  {
+    $data = \App\Content::get_like_user($request->content_id);
+    return $data;
   }
 }
