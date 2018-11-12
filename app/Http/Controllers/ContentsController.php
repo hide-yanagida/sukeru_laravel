@@ -44,6 +44,15 @@ class ContentsController extends Controller
             $is_valid = $request->file('image')->isValid();
 
       }
+
+      //バリデーション
+      $validatedData = $request->validate([
+          'overview' => 'required',
+          'place' => 'required',
+          'date_from' => 'required',
+          'date_to' => 'required',
+      ]);
+      
       //入力フォームの値をDBに保存
       $content = new Content;
       $content->overview = $request->overview;
@@ -127,6 +136,14 @@ class ContentsController extends Controller
         }
         $is_vaild = $request->file('image')->isValid();
       }
+
+      //バリデーション
+      $validatedData = $request->validate([
+          'overview' => 'required',
+          'place' => 'required',
+          'date_from' => 'required',
+          'date_to' => 'required',
+      ]);
 
       $content = \App\Content::find($request->content_id);
 

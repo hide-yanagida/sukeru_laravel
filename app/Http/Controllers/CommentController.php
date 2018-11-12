@@ -35,6 +35,11 @@ class CommentController extends Controller
 
   public function create(Request $request)
   {
+    //バリデーション
+    $validatedData = $request->validate([
+        'comment' => 'required',
+    ]);
+
     $comment = new Comment;
     $comment->user_id = Auth::id();
     $comment->comment = $request->comment;
